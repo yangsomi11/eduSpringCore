@@ -16,14 +16,14 @@ class StateFullServiceTest {
         StateFullService stateFullService1 = ac.getBean(StateFullService.class);
         StateFullService stateFullService2 = ac.getBean(StateFullService.class);
 
-        stateFullService1.order("userA", 1000);
-        stateFullService1.order("userB", 2000);
+        int userAPrice = stateFullService1.order("userA", 1000);
+        int userBPrice = stateFullService1.order("userB", 2000);
         // ThreadA가 사용자A 주문 금액 조회 
         
-        int price = stateFullService1.getPrice();
-        System.out.println("price = " + price);
+        //int price = stateFullService1.getPrice();
+        System.out.println("price = " + userAPrice);
 
-        Assertions.assertThat(stateFullService1.getPrice()).isEqualTo(2000);
+        //Assertions.assertThat(stateFullService1.getPrice()).isEqualTo(2000);
 
     }
 
